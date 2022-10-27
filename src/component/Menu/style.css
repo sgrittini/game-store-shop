@@ -1,0 +1,10 @@
+div{
+  
+    flex-direction: column;
+}
+h1{
+    color: white;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}

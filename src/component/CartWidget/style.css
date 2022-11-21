@@ -3,4 +3,21 @@
  
     height: 50px;
     width: 50px;
+    display: flex;
+
+}
+.carrito h2{
+    color: black;
+    font-weight: bolder;
+    font-size: larger;
+    text-decoration: none;
+;
+    
+}
+.divCarrito{
+    display: grid;
+    grid-template-columns: 300px 40px;
+    justify-content: flex-start;
+    align-content: space-around ;
+    
 }

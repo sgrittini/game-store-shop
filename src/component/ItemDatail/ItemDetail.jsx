@@ -1,39 +1,70 @@
 import "./style.css";
-import {useParams} from "react-router-dom"
-import { productos } from "../Data/productos";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import {productos} from '../../Data/productos'
+import ItemCount from "../ItemCount/ItemCount";
+import ItemIMG from '../ItemIMG/ItemIMG'
+import { HiOutlineShoppingCart } from "react-icons/hi";
+import Button from "react-bootstrap/Button";
+
+ import {cartContext} from '../../context/CartProvider'
+
+
+
+
+
 const ItemDetail = () => {
+  const { id } = useParams();
 
-  const {id} = useParams();
+   const {addToCart} = useContext(cartContext);
+
+  const item = productos.find((item) => item.id == id);
+
+  
+  const [unidades, setUnidades] = useState(1);
 
 
-  const item = productos.find((item)=>{
-    console.log(item.id);
-    if(item.id==id){
-      return item;
-    }
-  }
-  )
-  /*
-  id: 1,
-    name:"consola 1",
-    stock:10,
-    categoria:"consolas",
-    precio:1000,
-  */
+  
+ const CarritoItem=()=>{
+    return  <Button onClick={()=>addToCart(item,unidades)} className="botonAgregarCarrito" variant="secondary">
+    <HiOutlineShoppingCart />
+  </Button>}  
+
+  useEffect(() => {
+    setUnidades(unidades);
+   }, [unidades]);
+ 
   return (
     <div className="unItem">
+      <ItemIMG id = {id}/>
+      <div className="atributosDeUnItem">
+        <h4>id:</h4>
+        <h3>{item.id} </h3>
+      </div>
+      <div className="atributosDeUnItem">
+        <h4>nombre:</h4>
+        <h3>{item.name}</h3>
+      </div>
+      <div className="atributosDeUnItem">
+        <h4>categoria:</h4>
+        <h3>{item.categoria} </h3>
+      </div>
+      <div className="atributosDeUnItem">
+        <h4>stock:</h4>
+        <h3>{item.stock} </h3>
+      </div>
+      <div className="atributosDeUnItem">
+        <h4>precio:</h4>
+        <h3>${item.precio} </h3>
+      </div>
+      <p className="textoUnidades">{`${unidades}`}</p>
+      <div className="divCompra">
+      <ItemCount setUnidades={setUnidades} stock={item.stock}/>
+      <CarritoItem/>
+      {/* <button onClick={()=>addToCart(item,unidades)}>Agregar</button> */}
+      </div>
+    </div>
+  );
+};
 
-
-    <h3>id: {item.id} </h3>
-    <h3>{item.name}</h3>
-    <h3>{item.categoria} </h3>
-    <h3>Unidades disponibles:{item.stock} </h3>
-    <h3>${item.precio} </h3>
-
-
-</div>
-
-  )
-}
-
-export default ItemDetail
+export default ItemDetail;

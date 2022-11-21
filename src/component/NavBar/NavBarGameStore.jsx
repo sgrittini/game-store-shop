@@ -6,12 +6,12 @@ import {Link,NavLink} from 'react-router-dom';
 import  CartWidget  from "../CartWidget/CartWidget";
 import Logo from "./Logo";
 import NombreTienda from "./NombreTienda"
-import Cart from "../CartWidget/Cart";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 
-function CollapsibleExample() {
+function NavBarGameStore() {
   return (
     <>
     <NombreTienda/>
@@ -39,4 +39,4 @@ function CollapsibleExample() {
   );
 }
 
-export default CollapsibleExample;
+export default NavBarGameStore;

@@ -6,6 +6,14 @@ h3{
   color:rgb(6, 241, 88);
 } 
 
-.masDatos{
+.comprar{
   color: rgb(227, 239, 227);
+  background-color: blue;
+  
+}
+
+.pSinStock {
+  font-weight: bold;
+  margin: 5px;
+  color: red;
 }

@@ -1,25 +1,4 @@
-
-.unItem{
- display: flex;
- flex-direction: column;
- padding-left: 40px;
-}
-.unItem .atributosDeUnItem{
-  display: grid;
-  grid-template-columns: 10% auto;
-  align-items: baseline;
-  text-align: start;
- 
-}
-.unItem  h3 {
-  color: rgb(6, 241, 88);
-}
-.unItem  h4 {
-  color: black;
-}
-
-
-h1 {
+/*h1 {
   color: white;
   text-align: center;
   align-content: center;
@@ -61,11 +40,10 @@ p {
   width: 30px;
   height: 30px;
   text-align: center;
-  margin-right: 4px;
 }
 
 .textoUnidades {
-  width: 70px;
+  width: 25px;
   font-size: 20px;
   text-align: center;
   color: white;
@@ -104,33 +82,4 @@ p {
 
 
 }
-
-
-
-@media (max-width: 1200px) {
-  .unItem{
-    
-    padding: 20px;
-   }
-   .unItem .atributosDeUnItem{
-    grid-template-columns: 20% auto;
-    
-   }
-
-
-}
-
-@media (max-width: 560px) {
-  .unItem{
-    
-    padding: 20px;
-   }
-   .unItem .atributosDeUnItem{
-    grid-template-columns: auto auto;
-    
-   }
-
-
-}
-
-
+*/

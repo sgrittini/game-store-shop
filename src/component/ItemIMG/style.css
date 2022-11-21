@@ -1,0 +1,16 @@
+.fotos {
+  height: 150px;
+  width: 150px;
+
+
+}
+
+.sinFoto {
+  color: white;
+  border: dashed 1px black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  padding-Top: 60px;
+
+}

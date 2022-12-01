@@ -105,6 +105,4 @@ orders
 }
 
 
-![gift pf-react](/demoFuncionamiento.gif)
-
 [demo](/demoFuncionamiento.gif)

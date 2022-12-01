@@ -7,6 +7,7 @@ import ItemDetail from "./component/ItemDatail/ItemDetail";
 //import Footer from "./component/Footer/Footer";
 import Cart from "./component/CartWidget/Cart"
 import CartProvider from './context/CartProvider';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

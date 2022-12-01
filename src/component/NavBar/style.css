@@ -6,7 +6,7 @@ h2,div{
 }
 .divNombreTienda{
     display: flex;
-    width: 95%;
+    width: 100%;
     justify-content: space-between;
     align-items: baseline;
 }
@@ -72,10 +72,16 @@ a{
     font-weight: bolder;
     font-size: larger;
     text-decoration: none;
+
     
 }
+.color-text{
+    margin-left: 40px;
+    
+ 
+ }
 .color-text:hover{
-    color:white
+    color:white;
  }
 
 

@@ -1,3 +1,68 @@
+import {collection,doc,getDoc,getDocs,query,where,getFirestore,addDoc,updateDoc} from 'firebase/firestore';
+import Cart from '../component/CartWidget/Cart';
+import moment from 'moment';
+
+export const getAll=(setListaProducto)=>{
+  const db = getFirestore();
+  const productoCollections = collection(db,"productos");
+  getDocs(productoCollections).then((snapshop)=>{
+    setListaProducto(snapshop.docs.map((doc)=>({id: doc.id,...doc.data()})));
+  });
+
+}
+
+export const getAllByCategory=(setListaProducto,categoria)=>{
+  const db = getFirestore();
+  const q = query(collection(db,"productos"),where("categoria","==",categoria));
+  getDocs(q).then((snapshop)=>{
+    setListaProducto(snapshop.docs.map((doc)=>({id: doc.id,...doc.data()})));
+  });
+
+}
+
+export const getById=(setItem,id)=>{
+  const db = getFirestore();
+  const byId = doc(db,"productos",id);
+  getDoc(byId).then((snapshop)=>{
+    if(snapshop.exists()){
+      setItem({id:snapshop.id,...snapshop.data()});
+    }
+  });
+
+}
+
+
+export const createOrder=(cart,importeTotal,formulario)=>{
+  const db = getFirestore();
+  const col = collection(db,'orders');
+  const newOrder={
+    buyer:{
+      name:formulario.name,
+      email:formulario.email,
+      telefono:formulario.telefono
+    },
+    items: cart,
+    fechaCreacion: moment().format('YYYY/MM/DD'),
+    total: importeTotal
+
+  };
+  addDoc(col,newOrder)
+  //.then(({id})=>alert(`Se genero la Orden con el id ${id}`))
+  .then((response)=>{
+    alert(`Se genero la Orden con el id ${response.id}`)
+    return response;
+  })
+  .then((response2)=>{
+    cart.forEach((item)=>{
+      const registro = doc(db,'productos',item.id);
+      updateDoc(registro,{stock: item.stock-item.cantidad})
+    })
+  })
+  .catch((error)=>console.log(error));
+
+}
+
+/*
 export const productos = [
   {
     id: 1,
@@ -89,3 +154,4 @@ export const productos = [
     img: "/assets/11.png",
   },
 ];
+*/

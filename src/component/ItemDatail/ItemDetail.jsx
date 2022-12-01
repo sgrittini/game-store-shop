@@ -1,7 +1,7 @@
 import "./style.css";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import {productos} from '../../Data/productos'
+import {getById} from '../../Data/productos'
 import ItemCount from "../ItemCount/ItemCount";
 import ItemIMG from '../ItemIMG/ItemIMG'
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -17,11 +17,16 @@ const ItemDetail = () => {
   const { id } = useParams();
 
    const {addToCart} = useContext(cartContext);
+   
+   const [unidades, setUnidades] = useState(1);
+   const [item, setItem] = useState("");
 
-  const item = productos.find((item) => item.id == id);
-
+  //const item = productos.find((item) => item.id == id);
+  useEffect(() => {
+    getById(setItem,id);
+   }, []);
   
-  const [unidades, setUnidades] = useState(1);
+  
 
 
   

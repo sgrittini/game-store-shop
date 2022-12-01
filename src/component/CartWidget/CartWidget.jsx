@@ -8,7 +8,8 @@ const CartWidget = () => {
     return (
         <div className="carrito">
             <img className="carrito" src={carrito} alt="Carrito"  />
-            <h2>{cart.length}</h2>
+            {cart.length >0 && <h2>{cart.length}</h2>}
+            
         </div>
     );
 }
